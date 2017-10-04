@@ -10,6 +10,12 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.tsx?$/,
+        enforce: 'pre',
+        loader: 'tslint-loader',
+        options: { /* Loader options go here */ }
+      },
+      {
         enforce: 'pre',
         test: /\.js$/,
         loader: 'source-map-loader',

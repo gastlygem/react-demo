@@ -1,32 +1,32 @@
-import * as React from 'react';
+import * as React from "react";
 
-import TodoList from './TodoList';
+import TodoList from "./TodoList";
 
 export default class TodoApp extends React.Component<any, TodoAppState> {
   constructor(props: any) {
     super(props);
-    this.state = { items: [], text: '' };
+    this.state = { items: [], text: "" };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(e: any) {
+  public handleChange(e: any) {
     this.setState({ text: e.target.value });
   }
 
-  handleSubmit(e: any) {
+  public handleSubmit(e: any) {
     e.preventDefault();
     const newItem = {
-      text: this.state.text,
       id: Date.now(),
+      text: this.state.text,
     };
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       items: prevState.items.concat(newItem),
-      text: '',
+      text: "",
     }));
   }
 
-  render() {
+  public render() {
     return (
       <div>
         <h3>TODO</h3>
