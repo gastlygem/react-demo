@@ -1,7 +1,7 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 
-const TodoList = ({ items }) => (
+const TodoList: React.SFC<TodoListProps> = ({ items }) => (
   <ul>
     {items.map(item => (
       <li key={item.id}>{item.text}</li>

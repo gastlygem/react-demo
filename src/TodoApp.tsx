@@ -2,19 +2,19 @@ import * as React from 'react';
 
 import TodoList from './TodoList';
 
-export default class TodoApp extends React.Component {
-  constructor(props) {
+export default class TodoApp extends React.Component<any, TodoAppState> {
+  constructor(props: any) {
     super(props);
     this.state = { items: [], text: '' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(e) {
+  handleChange(e: any) {
     this.setState({ text: e.target.value });
   }
 
-  handleSubmit(e) {
+  handleSubmit(e: any) {
     e.preventDefault();
     const newItem = {
       text: this.state.text,

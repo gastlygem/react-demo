@@ -1,29 +1,26 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'index.jsx'),
+  entry: path.resolve(__dirname, 'index.tsx'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
         enforce: 'pre',
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-        options: {
-          emitWarning: true,
-        },
+        test: /\.js$/,
+        loader: 'source-map-loader',
       },
       {
-        test: /\.jsx?$/,
-        loader: 'babel-loader',
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader',
       },
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
   },
 };
